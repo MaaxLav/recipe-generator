@@ -43,7 +43,19 @@ flowchart TD
 `types/contracts.ts` містить контракти плану, `types/catalog.ts` — схеми
 каталогу й аргументів пошуку, `types/slot.ts` — схему інтервалу часу.
 У `types/` немає залежностей від бізнес-логіки чи серверних модулів.
-Схеми, що використовуються лише в одному місці, залишаються біля споживача.
+`types/evidence.ts` містить тип джерела MCP `Source`, схеми `contextSchema`
+і `productEvidenceSchema` та їхні типи `ContextEvidence` і `ProductEvidence`;
+`types/catalog.ts` також містить `CatalogContext` і `CatalogToolName`.
+`types/session.ts` — тип серверної OAuth-сесії `Session`. Обидва експортуються
+через `@/types`; залежності OAuth SDK імпортуються лише як типи.
+Усі експортовані типи й схеми зберігаються в `types/`; неекспортовані локальні
+типи та схеми залишаються біля споживача.
+
+Експортовані константи зберігаються в `constants/` і доступні через
+`@/constants`: `catalog.ts` — описи та прив’язка схем `catalogTools`,
+`mcp.ts` — `MCP_URL` і allowlist `READ_TOOLS`, `session.ts` — назва cookie
+`COOKIE`. Виняток — обов’язкові експорти Next.js у layout/route-файлах.
+Функція `origin()` залишається на сервері й читає оточення під час виклику.
 
 `groundProduct` у `lib/evidence.ts` та `groundContext` у
 `lib/context-evidence.ts` — допоміжні механізми з окремими тестами. Поточна

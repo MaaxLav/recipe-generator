@@ -1,5 +1,15 @@
 import { z } from 'zod';
 
+export type CatalogToolName =
+  'silpo_find_products_batch' | 'silpo_get_products';
+
+export type CatalogContext = {
+  branch: string;
+  delivery: string;
+  start: string;
+  end: string;
+};
+
 // Verified against authenticated tools/list and live catalog responses, 2026-09-27.
 export const silpoProductSchema = z.object({
   id: z.string().min(1).max(128),

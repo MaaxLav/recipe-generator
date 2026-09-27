@@ -40,12 +40,12 @@ Map у пам’яті тримає максимум 100 сесій. OAuth state
 
 ## Два рівні доступу до інструментів
 
-[READ_TOOLS](../src/lib/mcp-policy.ts) обмежує discovery і кожний фактичний
+[READ_TOOLS](../src/constants/mcp.ts) обмежує discovery і кожний фактичний
 виклик. Він містить інструменти кошика, слотів, пошуку, деталей, а також
 `silpo_get_similar_products` і `silpo_get_replacements`.
 
 Модель бачить **лише два MCP-tools**, визначені в
-[agent-policy.ts](../src/lib/agent-policy.ts):
+[constants/catalog.ts](../src/constants/catalog.ts):
 
 Спільні Zod-схеми аргументів і товарів визначені в
 [types/catalog.ts](../src/types/catalog.ts) та експортовані через

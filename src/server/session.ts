@@ -2,32 +2,15 @@ import 'server-only';
 
 import { randomBytes } from 'node:crypto';
 
-import type {
-  OAuthClientProvider,
-  OAuthDiscoveryState,
-} from '@modelcontextprotocol/sdk/client/auth.js';
-import type {
-  OAuthClientInformationMixed,
-  OAuthTokens,
-} from '@modelcontextprotocol/sdk/shared/auth.js';
+import type { OAuthClientProvider } from '@modelcontextprotocol/sdk/client/auth.js';
 import { cookies } from 'next/headers';
+
+import { COOKIE } from '@/constants';
+import type { Session } from '@/types';
 
 import { AppError } from './errors';
 
-export const COOKIE = 'smak_session';
 export const origin = () => process.env.APP_ORIGIN || 'http://127.0.0.1:3000';
-export type Session = {
-  id: string;
-  expires: number;
-  tokens?: OAuthTokens;
-  client?: OAuthClientInformationMixed;
-  discovery?: OAuthDiscoveryState;
-  verifier?: string;
-  state?: string;
-  authStarted?: number;
-  redirect?: string;
-  busy?: boolean;
-};
 const globalSessions = globalThis as typeof globalThis & {
   smakSessions?: Map<string, Session>;
 };

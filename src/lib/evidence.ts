@@ -1,10 +1,7 @@
-import { z } from 'zod';
-
-import type { Product, Unit } from '@/types';
+import type { Product, ProductEvidence, Source, Unit } from '@/types';
 
 import { money } from './pricing';
 
-export type Source = { tool: string; data: unknown };
 export function pointer(value: unknown, path: string): unknown {
   if (path === '') return value;
   if (!path.startsWith('/')) throw new Error('Потрібен JSON Pointer');
@@ -23,40 +20,6 @@ export function pointer(value: unknown, path: string): unknown {
       return (v as Record<string, unknown>)[key];
     }, value);
 }
-const path = z
-  .string()
-  .describe(
-    'RFC6901 JSON Pointer relative to the product object; use the actual MCP response',
-  );
-export const productEvidenceSchema = z.object({
-  sourceId: z.string(),
-  objectPath: path,
-  idPath: path,
-  namePath: path,
-  pricePath: path,
-  priceCurrency: z
-    .enum(['UAH', 'kop'])
-    .describe(
-      'Use kop only if the MCP schema explicitly identifies the field as kopecks',
-    ),
-  packagePath: path.describe(
-    'A source string explicitly stating content, e.g. 500 г / 1 л / 10 шт. Can point to the product name',
-  ),
-  priceBasisPath: path.describe(
-    'Source field identifying sale/price unit: шт, уп, кг etc. Never guess whether price is per pack or kg',
-  ),
-  availablePath: path.describe(
-    'Boolean availability, stock count, or explicit in_stock status',
-  ),
-  urlPath: path.nullable(),
-  imagePath: path.nullable(),
-  minOrderPath: path
-    .nullable()
-    .describe('Required for weighted goods, in the source sale unit'),
-  stepPath: path
-    .nullable()
-    .describe('Required for weighted goods, in the source sale unit'),
-});
 export function safeUrl(value: unknown, product = false): string | null {
   if (typeof value !== 'string') return null;
   try {
@@ -101,7 +64,7 @@ export function packageContent(label: string): { content: number; unit: Unit } {
   return { content, unit: unitMap[matches[0][2].toLowerCase()] };
 }
 export function groundProduct(
-  evidence: z.infer<typeof productEvidenceSchema>,
+  evidence: ProductEvidence,
   sources: Map<string, Source>,
 ): Product {
   const source = sources.get(evidence.sourceId);

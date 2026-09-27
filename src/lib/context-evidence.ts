@@ -1,20 +1,7 @@
-import { z } from 'zod';
+import type { ContextEvidence, Slot, Source } from '@/types';
 
-import type { Slot } from '@/types';
+import { pointer } from './evidence';
 
-import { pointer, type Source } from './evidence';
-
-export const contextSchema = z.object({
-  cartSource: z.string(),
-  branchPath: z.string(),
-  deliveryTypePath: z.string(),
-  startPath: z.string(),
-  endPath: z.string(),
-  storePath: z.string().nullable(),
-  slotsSource: z.string(),
-  availableStartPath: z.string(),
-  availableEndPath: z.string(),
-});
 export function isAvailableSlot(
   selected: Slot,
   delivery: string,
@@ -39,7 +26,7 @@ export function isAvailableSlot(
   );
 }
 export function groundContext(
-  args: z.infer<typeof contextSchema>,
+  args: ContextEvidence,
   sources: Map<string, Source>,
   now = Date.now(),
 ) {

@@ -3,8 +3,9 @@ import { randomBytes } from 'node:crypto';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { NextResponse } from 'next/server';
 
+import { COOKIE } from '@/constants';
 import { makeTransport } from '@/server/mcp';
-import { COOKIE, createSession, getSession, origin } from '@/server/session';
+import { createSession, getSession, origin } from '@/server/session';
 
 export const runtime = 'nodejs';
 export async function GET() {

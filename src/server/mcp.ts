@@ -4,12 +4,13 @@ import { UnauthorizedError } from '@modelcontextprotocol/sdk/client/auth.js';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 
-import { READ_TOOLS, readWithRetry } from '@/lib/mcp-policy';
+import { MCP_URL, READ_TOOLS } from '@/constants';
+import { readWithRetry } from '@/lib/mcp-policy';
+import type { Session } from '@/types';
 
 import { AppError } from './errors';
-import { provider, type Session } from './session';
+import { provider } from './session';
 
-export const MCP_URL = 'https://mcp.silpo.ua/mcp';
 export function makeTransport(session: Session, signal: AbortSignal) {
   return new StreamableHTTPClientTransport(new URL(MCP_URL), {
     authProvider: provider(session),

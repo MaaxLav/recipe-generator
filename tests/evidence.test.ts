@@ -6,8 +6,8 @@ import {
   packageContent,
   pointer,
   safeUrl,
-  type Source,
 } from '../src/lib/evidence';
+import type { Source } from '../src/types';
 
 // Synthetic fixtures exercise grounding mechanics, NOT an asserted Silpo wire format.
 const sources = new Map<string, Source>([

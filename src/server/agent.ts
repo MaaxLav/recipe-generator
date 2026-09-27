@@ -4,17 +4,17 @@ import { Agent, Runner, tool } from '@openai/agents';
 import Ajv from 'ajv';
 import { z } from 'zod';
 
+import { catalogTools } from '@/constants';
 import {
   catalogArguments,
   catalogForModel,
-  catalogTools,
   conflictingAssignments,
   isCatalogTool,
   isProductPath,
   optimizationSummary,
   projectCatalog,
 } from '@/lib/agent-policy';
-import { pointer, type Source } from '@/lib/evidence';
+import { pointer } from '@/lib/evidence';
 import { calculate, money } from '@/lib/pricing';
 import { normalizeSilpoProduct } from '@/lib/silpo-product';
 import {
@@ -23,13 +23,14 @@ import {
   type Product,
   type Recipe,
   recipeSchema,
+  type Session,
   silpoProductSchema,
+  type Source,
 } from '@/types';
 
 import { loadCartContext } from './cart-context';
 import { AppError } from './errors';
 import { callReadTool, connectMcp } from './mcp';
-import type { Session } from './session';
 
 const assignmentsSchema = z.object({
   items: z

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import { groundContext, isAvailableSlot } from '../src/lib/context-evidence';
-import type { Source } from '../src/lib/evidence';
+import type { Source } from '../src/types';
 
 // Synthetic context examples, not a claimed Silpo schema.
 const slot = { start: '2030-01-01T12:00:00Z', end: '2030-01-01T13:00:00Z' };

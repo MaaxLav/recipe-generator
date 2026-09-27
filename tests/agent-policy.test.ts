@@ -3,10 +3,10 @@ import { test } from 'node:test';
 
 import { RunContext, tool } from '@openai/agents';
 
+import { catalogTools } from '../src/constants';
 import {
   catalogArguments,
   catalogForModel,
-  catalogTools,
   conflictingAssignments,
   isCatalogTool,
   isProductPath,
