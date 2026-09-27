@@ -1,4 +1,4 @@
-import type { Recipe } from '@/lib/contracts';
+import type { Recipe } from '@/types';
 
 const unitLabel = { g: 'г', kg: 'кг', ml: 'мл', l: 'л', pcs: 'шт.' };
 

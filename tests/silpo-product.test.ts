@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import type { Recipe } from '../src/lib/contracts';
 import { calculate } from '../src/lib/pricing';
 import { normalizeSilpoProduct } from '../src/lib/silpo-product';
+import type { Recipe } from '../src/types';
 
 // Field layout and kg/display-price relationship verified with live MCP.
 // Identifiers below are synthetic; these fixtures contain no account data.

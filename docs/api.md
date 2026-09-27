@@ -1,7 +1,7 @@
 # HTTP API
 
 Маршрути розташовані в [src/app/api](../src/app/api), виконуються в Node.js.
-Типи й Zod-схеми визначені в [contracts.ts](../src/lib/contracts.ts).
+Типи й Zod-схеми визначені в [contracts.ts](../src/types/contracts.ts).
 
 ## Маршрути
 

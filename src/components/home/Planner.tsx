@@ -39,7 +39,7 @@ export function Planner({
   onSubmit,
 }: PlannerProps) {
   return (
-    <section id="planner" className="shell scroll-mt-8 py-18">
+    <section id="planner" className="shell scroll-mt-8 py-9">
       <div className="mb-8 text-center">
         <span className="text-xs font-bold tracking-[2px] text-orange">
           ТРОХИ МАГІЇ НА ВАШІЙ КУХНІ

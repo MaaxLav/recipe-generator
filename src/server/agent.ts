@@ -14,16 +14,17 @@ import {
   optimizationSummary,
   projectCatalog,
 } from '@/lib/agent-policy';
+import { pointer, type Source } from '@/lib/evidence';
+import { calculate, money } from '@/lib/pricing';
+import { normalizeSilpoProduct } from '@/lib/silpo-product';
 import {
   type PlanRequest,
   type PlanResult,
   type Product,
   type Recipe,
   recipeSchema,
-} from '@/lib/contracts';
-import { pointer, type Source } from '@/lib/evidence';
-import { calculate, money } from '@/lib/pricing';
-import { normalizeSilpoProduct, silpoProductSchema } from '@/lib/silpo-product';
+  silpoProductSchema,
+} from '@/types';
 
 import { loadCartContext } from './cart-context';
 import { AppError } from './errors';

@@ -37,7 +37,13 @@ flowchart TD
 | [lib/agent-policy.ts](../src/lib/agent-policy.ts)       | Контракти пошуку, проєкція каталогу, шляхи доказів, конфлікти призначень                           |
 | [lib/silpo-product.ts](../src/lib/silpo-product.ts)     | Поточний типізований адаптер товарів                                                               |
 | [lib/pricing.ts](../src/lib/pricing.ts)                 | Перетворення одиниць, упаковки, залишки, суми                                                      |
-| [lib/contracts.ts](../src/lib/contracts.ts)             | PlanRequest, Recipe, Product, ShoppingLine, PlanResult і Zod-схеми                                 |
+| [types/contracts.ts](../src/types/contracts.ts)         | PlanRequest, Recipe, Product, ShoppingLine, PlanResult і Zod-схеми                                 |
+
+Спільні схеми та типи імпортуються через `@/types`:
+`types/contracts.ts` містить контракти плану, `types/catalog.ts` — схеми
+каталогу й аргументів пошуку, `types/slot.ts` — схему інтервалу часу.
+У `types/` немає залежностей від бізнес-логіки чи серверних модулів.
+Схеми, що використовуються лише в одному місці, залишаються біля споживача.
 
 `groundProduct` у `lib/evidence.ts` та `groundContext` у
 `lib/context-evidence.ts` — допоміжні механізми з окремими тестами. Поточна

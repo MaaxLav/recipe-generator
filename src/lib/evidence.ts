@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
-import type { Product, Unit } from './contracts';
+import type { Product, Unit } from '@/types';
+
 import { money } from './pricing';
 
 export type Source = { tool: string; data: unknown };

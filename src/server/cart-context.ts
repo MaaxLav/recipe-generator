@@ -4,11 +4,11 @@ import type { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { z } from 'zod';
 
 import { isAvailableSlot } from '@/lib/context-evidence';
+import { slotSchema } from '@/types';
 
 import { AppError } from './errors';
 import { callReadTool } from './mcp';
 
-const slotSchema = z.object({ start: z.string(), end: z.string() });
 export async function loadCartContext(client: Client, signal: AbortSignal) {
   const missing = () =>
     new AppError(

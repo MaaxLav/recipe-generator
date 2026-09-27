@@ -14,7 +14,7 @@ type HeroProps = {
 
 export function Hero({ photoFailed, onPhotoError }: HeroProps) {
   return (
-    <section className="shell grid items-center gap-12 pb-18 pt-9 lg:grid-cols-[1.08fr_1fr] lg:gap-16 lg:pb-24 lg:pt-14">
+    <section className="shell grid items-center gap-12 pb-9 pt-6 lg:grid-cols-[1.08fr_1fr] lg:gap-16 lg:pb-12 lg:pt-8">
       <div>
         <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#fff0d3] px-4 py-2 text-xs font-bold tracking-wide text-[#99541a]">
           <Sparkles size={14} /> ВАШ КУЛІНАРНИЙ AI-ПОМІЧНИК

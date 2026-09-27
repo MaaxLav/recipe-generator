@@ -1,13 +1,13 @@
 import { ChefHat, Clock3, Users } from 'lucide-react';
 
-import type { PlanResult } from '@/lib/contracts';
+import type { PlanResult } from '@/types';
 
 import { RecipeDetails } from './RecipeDetails';
 import { ShoppingList } from './ShoppingList';
 
 export function RecipeResult({ result }: { result: PlanResult | null }) {
   return (
-    <section id="result" aria-live="polite" className="shell scroll-mt-8 pb-20">
+    <section id="result" aria-live="polite" className="shell scroll-mt-8 pb-10">
       {!result ? (
         <div className="rounded-[28px] border border-dashed border-[#e7dac7] px-6 py-12 text-center">
           <ChefHat size={35} className="mx-auto text-[#c7b59a]" />

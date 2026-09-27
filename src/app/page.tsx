@@ -8,7 +8,7 @@ import { Hero } from '@/components/home/Hero';
 import { HowItWorks } from '@/components/home/HowItWorks';
 import { Planner } from '@/components/home/Planner';
 import { RecipeResult } from '@/components/home/RecipeResult';
-import type { PlanResult } from '@/lib/contracts';
+import type { PlanResult } from '@/types';
 
 export default function Home() {
   const [connected, setConnected] = useState(false);

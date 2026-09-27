@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import type { Product, Recipe } from '../src/lib/contracts';
-import { requestSchema } from '../src/lib/contracts';
 import { calculate, convert, money } from '../src/lib/pricing';
+import type { Product, Recipe } from '../src/types';
+import { requestSchema } from '../src/types';
 
 const product: Product = {
   id: 'milk',

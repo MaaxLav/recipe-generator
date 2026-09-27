@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import type { Slot } from '@/types';
+
 import { pointer, type Source } from './evidence';
 
 export const contextSchema = z.object({
@@ -14,7 +16,7 @@ export const contextSchema = z.object({
   availableEndPath: z.string(),
 });
 export function isAvailableSlot(
-  selected: { start: string; end: string },
+  selected: Slot,
   delivery: string,
   slots: {
     start: string;

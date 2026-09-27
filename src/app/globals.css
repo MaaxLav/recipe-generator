@@ -47,8 +47,8 @@ a:focus-visible {
 }
 .shell {
   max-width: 1240px;
-  margin: auto;
-  padding: 0 32px;
+  margin-inline: auto;
+  padding-inline: 32px;
 }
 .hero-photo {
   background: #d7ad73;
@@ -102,6 +102,6 @@ a:focus-visible {
 }
 @media (max-width: 640px) {
   .shell {
-    padding: 0 20px;
+    padding-inline: 20px;
   }
 }

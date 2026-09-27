@@ -1,6 +1,6 @@
 import { ShoppingBasket } from 'lucide-react';
 
-import type { PlanResult } from '@/lib/contracts';
+import type { PlanResult } from '@/types';
 
 import { ProductImage } from './ProductImage';
 

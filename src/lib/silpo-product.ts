@@ -1,24 +1,10 @@
 import { z } from 'zod';
 
-import type { Product } from './contracts';
+import { type Product, silpoProductSchema } from '@/types';
+
 import { packageContent, safeUrl } from './evidence';
 import { convert, money } from './pricing';
 
-// Verified against authenticated tools/list and live catalog responses, 2026-09-27.
-export const silpoProductSchema = z.object({
-  id: z.string().min(1).max(128),
-  name: z.string().min(1).max(300),
-  slug: z.string().min(1).max(300),
-  price: z.number().positive().max(100000),
-  displayPrice: z.number().nonnegative().max(100000),
-  available: z.boolean(),
-  stock: z.number().nonnegative(),
-  weighted: z.boolean(),
-  step: z.number().positive(),
-  displayRatio: z.string().max(100).nullable(),
-  image: z.string().max(2048).nullable(),
-  branchId: z.string().max(128).nullable(),
-});
 export function normalizeSilpoProduct(
   value: unknown,
   detailValue: unknown,

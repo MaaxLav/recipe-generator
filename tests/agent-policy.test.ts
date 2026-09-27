@@ -13,9 +13,9 @@ import {
   optimizationSummary,
   projectCatalog,
 } from '../src/lib/agent-policy';
-import { type Product, type Recipe, recipeSchema } from '../src/lib/contracts';
 import { pointer, safeUrl } from '../src/lib/evidence';
 import { calculate } from '../src/lib/pricing';
+import { type Product, type Recipe, recipeSchema } from '../src/types';
 
 const context = {
   branch: 'confirmed-branch',

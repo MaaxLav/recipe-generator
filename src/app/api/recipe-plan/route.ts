@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { requestSchema } from '@/lib/contracts';
 import { createPlan } from '@/server/agent';
 import { AppError, publicError } from '@/server/errors';
 import { getSession, origin } from '@/server/session';
+import { requestSchema } from '@/types';
 
 export const runtime = 'nodejs';
 export const maxDuration = 180;

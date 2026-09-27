@@ -1,4 +1,4 @@
-import type { Product, Recipe, ShoppingLine, Unit } from './contracts';
+import type { Product, Recipe, ShoppingLine, Unit } from '@/types';
 
 const units: Record<Unit, { family: string; scale: number }> = {
   g: { family: 'mass', scale: 1 },
