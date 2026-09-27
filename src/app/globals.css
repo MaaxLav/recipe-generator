@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+@theme {
+  --color-cream: #fff8ed;
+  --color-ink: #2d2118;
+  --color-orange: #ff800a;
+}
+:root {
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: #2d2118;
+  background: #fff8ed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+a {
+  text-underline-offset: 4px;
+}
+input:focus,
+textarea:focus {
+  outline: 2px solid #ff800a;
+  outline-offset: 3px;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #d85b00;
+  outline-offset: 4px;
+}
+.shell {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 32px;
+}
+.hero-photo {
+  background: #d7ad73;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-shadow {
+  box-shadow: 0 18px 55px #79430e0b;
+}
+.orange-button {
+  background: #ff800a;
+  color: white;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.orange-button:hover:not(:disabled) {
+  background: #e66c00;
+  transform: translateY(-1px);
+}
+.field {
+  display: block;
+  width: 100%;
+  border: 1px solid #e7dfd5;
+  border-radius: 14px;
+  background: #fffdfa;
+  padding: 15px 16px;
+  color: #2d2118;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 1.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 640px) {
+  .shell {
+    padding: 0 20px;
+  }
+}
